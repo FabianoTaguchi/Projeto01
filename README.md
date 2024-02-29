@@ -10,3 +10,5 @@ Instale o Visual Studio Code
 
 <p> Acesso ao Github</p><br>
 [github](https://github.com)
+
+<h3> Autor: Fabiano Taguchi</h3>
