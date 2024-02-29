@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        @charset "UTF-8";
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+        :root{
+            --font-principal: Quicksand;
+        }
+        *{
+            padding: 0px;
+            margin: 0px;
+            font-family: var(--font-principal);
+        }
+        body{
+            background-color: lightslategray;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        main{
+            background-color: white;
+            width: 400px;
+            height: 300px;
+            box-sizing: border-box;
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-radius: 20px;
+            box-shadow: 0.1px 0.1px 3px black;
+        }
+        
+        h1{
+            font-size: 3em;
+            letter-spacing: 3px;
+            text-decoration: underline;
+        }    
+        p{
+            font-size: 2em;
+        }
+        form{
+            display: flex;
+            justify-content: space-between;
+        }
+        input[type="button"]{
+            font-size: 1em;
+            padding: 10px;
+            border-radius: 5px;
+            border-style: groove;
+            border-color: black;
+            background-color: white;
+        }
+        input[type="button"]:hover{
+            border-color: cyan;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        
+        
+    </style>
+</head>
+<body onload="inicio()">
+    <main>
+        <h1>Counter</h1>
+        <p id="contador" onchange="cor(contador)">#</p>
+        <form action="">
+            <input type="button" value="DECREASE" id="decrease" onclick="decrementar()">
+            <input type="button" value="RESET" id="reset" onclick="resetar()">
+            <input type="button" value="INCREASE" id="increase" onclick="incrementar()">
+        </form>
+    </main>
+    <script>
+        const mostar = document.querySelector("p#contador")
+        
+        let contador = 0
+        function inicio(){
+            mostar.innerText = contador
+        }
+        function incrementar(){
+            contador++
+            mostar.innerText = contador
+            cor(contador)
+        }
+        function decrementar(){
+            contador--
+            mostar.innerText = contador
+            cor(contador)
+        }
+        function resetar(){
+            contador = 0
+            mostar.innerText = contador
+            cor(contador)
+        }
+        function cor (contador){
+            if(contador > 0){
+                document.querySelector("p#contador").style.color = "green"
+            } else if (contador < 0){
+                document.querySelector("p#contador").style.color = "red"
+            } else {
+                document.querySelector("p#contador").style.color = "black"
+            }
+        }
+    </script>
+</body>
+</html>
